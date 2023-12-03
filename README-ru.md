@@ -33,6 +33,7 @@ There are two switchable menus to change dynarec variables in mobox settings men
 For more information about dynarec variables see [Box64 usage](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) and [Box86 usage](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md)
 ### System settings
 To change wine locale, dxvk hud preset or Turnip settings, use `System settings` menu in mobox.
+Fallback resolution is used only when x11 resolution couldn't be detected automatically.
 ## Termux-X11 preferences
 * `Display resolution mode` exact
 * `Display resolution` 1280x720
