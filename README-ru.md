@@ -1,0 +1,96 @@
+![logo](doc/img/logo.png "logo")
+
+<a href="https://github.com/olegos2/mobox/tree/main">English</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+Русский
+
+##
+
+`Mobox` is a project designed to run windows x86 applications in [Termux](https://github.com/termux/termux-app) using [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org/).
+
+# Installation
+1. Install
+[Termux](https://f-droid.org/repo/com.termux_118.apk),
+[Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) and
+[Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk).
+
+2. Open termux and paste command
+
+```bash
+will be here
+```
+
+3. Type `mobox` in termux.
+
+# Configuration
+## Wine
+Wine can be installed or uninstalled in `Manage packages` menu.
+To select wine container, use option 4 in main menu.
+Mesa VirGL, Turnip, Wine Mono and Gecko can be installed in Wine Start Menu.
+## Settings
+### Box86 and Box64 dynarec variables
+There are two switchable menus to change dynarec variables in mobox settings menu.
+For more information about dynarec variables see [Box64 usage](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) and [Box86 usage](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md)
+### System settings
+To change wine locale, dxvk hud preset or Turnip settings, use `System settings` menu in mobox.
+## Termux-X11 preferences
+* `Display resolution mode` exact
+* `Display resolution` 1280x720
+* `Reseed Screen While Soft Keyboard is open` OFF
+* `Fullscreen on device display` ON
+* `Force Landscape orientation` ON
+* `Hide display cutout` ON
+* `Show additional keyboard` OFF
+* `Prefer scancodes when possible` ON
+## Controls
+For touch controls Input Bridge app is required
+## Uninstall
+To uninstall mobox, use `Backup and restore` menu.
+
+## Support status
+### Android
+* `Android 10` or higher is recommended.
+### Device
+* Most Android cellphones can run `mobox` and DirectX 9 games using Mesa VirGL.
+* Snapdragon device with Adreno 6xx or Adreno 725-740 is recommended to achieve best performance and compatibility with Turnip+DXVK.
+### Root
+* Root is not required.
+
+#
+Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo and others for help.
+
+[MishkaKolos Discord](https://discord.gg/ZAQnZzbCXq)
+
+
+## Third party applications
+
+[glibc-packages](https://github.com/termux-pacman/glibc-packages)
+
+[Box64](https://github.com/ptitSeb/box64)
+
+[Box86](https://github.com/ptitSeb/box86)
+
+[DXVK](https://github.com/doitsujin/dxvk)
+
+[DXVK-ASYNC](https://github.com/Sporif/dxvk-async)
+
+[DXVK-GPLASYNC](https://gitlab.com/Ph42oN/dxvk-gplasync)
+
+[VKD3D](https://github.com/lutris/vkd3d)
+
+[D8VK](https://github.com/AlpyneDreams/d8vk)
+
+[Termux-app](https://github.com/termux/termux-app)
+
+[Termux-x11](https://github.com/termux/termux-x11)
+
+[Wine](https://wiki.winehq.org/Licensing)
+
+[wine-ge-custom](https://github.com/GloriousEggroll/wine-ge-custom)
+
+[Mesa](https://docs.mesa3d.org/license.html)
+
+[mesa-zink-11.06.22](https://github.com/alexvorxx/mesa-zink-11.06.22)
+
+[Mesa-VirGL](https://github.com/alexvorxx/Mesa-VirGL)
+
