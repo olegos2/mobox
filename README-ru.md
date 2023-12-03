@@ -17,7 +17,7 @@
 2. Open termux and paste command
 
 ```bash
-will be here
+curl -s -o x https://raw.githubusercontent.com/olegos2/mobox/main/install && . x
 ```
 
 3. Type `mobox` in termux.
