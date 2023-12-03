@@ -57,6 +57,12 @@ To uninstall mobox, use `Backup and restore` menu.
 ### Root
 * Root is not required.
 
+## Known issues
+* If termux app crashes when trying to enter mobox menu, then remove custom theme scripts:
+```bash
+rm -rf $PREFIX/glibc/opt/termux-style
+```
+
 #
 Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
 
