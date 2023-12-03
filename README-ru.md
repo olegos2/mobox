@@ -58,7 +58,7 @@ To uninstall mobox, use `Backup and restore` menu.
 * Root is not required.
 
 #
-Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo and others for help.
+Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
 
 [MishkaKolos Discord](https://discord.gg/ZAQnZzbCXq)
 
