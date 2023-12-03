@@ -1,4 +1,4 @@
-![logo](doc/img/logo.png "logo")
+![logo](docs/img/logo.png "logo")
 
 English
 &nbsp;&nbsp;| &nbsp;&nbsp;
