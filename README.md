@@ -48,6 +48,8 @@ If you have Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, enable the second option in 
 For touch controls Input Bridge app is required
 ## Uninstall
 To uninstall mobox, use `Backup and restore` menu.
+## Debugging
+To enable logging - select option 2 in Mobox -> Settings -> Debug settings menu. Path to the log is /sdcard/mobox_log.txt
 
 ## Support status
 ### Android
@@ -65,6 +67,7 @@ rm -rf $PREFIX/glibc/opt/termux-style
 ```
 * Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
 * For SD845 device, disable dri3 in `Compatibility settings` menu
+* Currently The Elder Scrolls games and Fallout: New Vegas won't start with sound. This issue will be fixed later
 
 #
 Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
