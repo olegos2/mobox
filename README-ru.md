@@ -29,10 +29,10 @@ Wine может быть установлен или удален в меню `M
 Mesa VirGL, Turnip, Wine Mono и Gecko могут быть установлены в Wine Start Menu.
 ## Настройки
 ### Переменные dynarec в Box86 и Box64
-There are two switchable menus to change dynarec variables in mobox settings menu.
-For more information about dynarec variables see [Box64 usage](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) and [Box86 usage](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md)
-### System settings
-To change wine locale, dxvk hud preset or Turnip settings, use `System settings` menu in mobox.
+Есть два переключаемых меню для изменения переменных dynarec в меню настроек mobox.
+Посмотрите For more information about dynarec variables see [использование Box64](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) и [использование Box86](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md), чтобы узнать больше о переменных dynarec.
+### Настройки системы
+Используйте меню `System settings` в mobox для локального изменения wine, пресета dxvk hud или настроек Turnip.
 Fallback resolution is used only when x11 resolution couldn't be detected automatically.
 If you have Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, enable the second option in `select a7xx flickering fix (TU_DEBUG)` in `System settings` menu.
 ## Termux-X11 preferences
@@ -44,12 +44,12 @@ If you have Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, enable the second option in 
 * `Hide display cutout` ON
 * `Show additional keyboard` OFF
 * `Prefer scancodes when possible` ON
-## Controls
-For touch controls Input Bridge app is required
-## Uninstall
-To uninstall mobox, use `Backup and restore` menu.
-## Debugging
-To enable logging - select option 2 in Mobox -> Settings -> Debug settings menu. Path to the log is /sdcard/mobox_log.txt
+## Управление
+Для сенсорного управления требуется приложение Input Bridge
+## Удаление
+Используйте меню `Backup and restore` для удаления mobox.
+## Отладка
+Для включения отладки - выберите опцию 2 в меню Mobox -> Settings -> Debug settings. Путь до логов - /sdcard/mobox_log.txt
 
 ## Поддержка
 ### Android
@@ -66,7 +66,7 @@ To enable logging - select option 2 in Mobox -> Settings -> Debug settings menu.
 rm -rf $PREFIX/glibc/opt/termux-style
 ```
 * Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
-* For SD845 device, disable dri3 in `Compatibility settings` menu
+* Для устройства с SD845, отключите dri3 в меню `Compatibility settings`
 
 #
 Большое спасибо Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython и другим за помощь.
