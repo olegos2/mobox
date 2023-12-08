@@ -25,7 +25,7 @@ curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && .
 # Конфигурация
 ## Wine
 Wine может быть установлен или удален в меню `Manage packages`.
-Для выбора контейнера wine, используйте 4 опцию в главном меню.
+Для выбора контейнера wine, используйте опцию 4 в главном меню.
 Mesa VirGL, Turnip, Wine Mono и Gecko могут быть установлены в Wine Start Menu.
 ## Настройки
 ### Переменные dynarec в Box86 и Box64
@@ -65,7 +65,7 @@ Mesa VirGL, Turnip, Wine Mono и Gecko могут быть установлен�
 ```bash
 rm -rf $PREFIX/glibc/opt/termux-style
 ```
-* Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
+* У некоторых устройств могут быть проблемы с зависанием создания префикса при установке PhysX, в таком случае измените настройки в меню `Compatibility settings`
 * Для устройства с SD845, отключите dri3 в меню `Compatibility settings`
 
 #
