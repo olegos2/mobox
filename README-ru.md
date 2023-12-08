@@ -33,7 +33,7 @@ Mesa VirGL, Turnip, Wine Mono и Gecko могут быть установлен�
 Посмотрите [как использовать Box64](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) и [как использовать Box86](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md), чтобы узнать больше о переменных dynarec.
 ### Настройки системы
 Используйте меню `System settings` в mobox для локального изменения wine, пресета dxvk hud или настроек Turnip.
-Fallback resolution is used only when x11 resolution couldn't be detected automatically.
+разрешение fallback использовано только когда разрешение x11 не может быть обнаружено автоматически.
 Если у вас Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, активируйте вторую опцию в `select a7xx flickering fix (TU_DEBUG)` в меню `System settings`.
 ## Termux-X11 preferences
 * `Display resolution mode` exact
