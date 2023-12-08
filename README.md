@@ -2,7 +2,7 @@
 
 English
 &nbsp;&nbsp;| &nbsp;&nbsp;
-<a href="https://github.com/olegos2/mobox/blob/main/README-ru.md">Русский</a> (пока не переведено)
+<a href="https://github.com/olegos2/mobox/blob/main/README-ru.md">Русский</a>
 
 ##
 
