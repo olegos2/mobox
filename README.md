@@ -67,7 +67,6 @@ rm -rf $PREFIX/glibc/opt/termux-style
 ```
 * Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
 * For SD845 device, disable dri3 in `Compatibility settings` menu
-* Currently The Elder Scrolls games and Fallout: New Vegas won't start with sound. This issue will be fixed later
 
 #
 Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
