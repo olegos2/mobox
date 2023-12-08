@@ -6,29 +6,29 @@
 
 ##
 
-`Mobox` is a project designed to run windows x86 applications in [Termux](https://github.com/termux/termux-app) using [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org/).
+`Mobox` - это проект, разработанный для запуска windows x86 приложений в [Termux](https://github.com/termux/termux-app), используя [Box64](https://github.com/ptitSeb/box64) и [Wine](https://www.winehq.org/).
 
-# Installation
-1. Install
+# Установка
+1. Установите
 [Termux](https://f-droid.org/repo/com.termux_118.apk),
-[Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) and
+[Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) и
 [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk).
 
-2. Open termux and paste command
+2. Откройте termux и вставьте команду
 
 ```bash
 curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && . ~/x
 ```
 
-3. Type `mobox` in termux.
+3. Введите `mobox` в termux.
 
-# Configuration
+# Конфигурация
 ## Wine
-Wine can be installed or uninstalled in `Manage packages` menu.
-To select wine container, use option 4 in main menu.
-Mesa VirGL, Turnip, Wine Mono and Gecko can be installed in Wine Start Menu.
-## Settings
-### Box86 and Box64 dynarec variables
+Wine может быть установлен или удален в меню `Manage packages`.
+Для выбора контейнера wine, используйте 4 опцию в главном меню.
+Mesa VirGL, Turnip, Wine Mono и Gecko могут быть установлены в Wine Start Menu.
+## Настройки
+### Переменные dynarec в Box86 и Box64
 There are two switchable menus to change dynarec variables in mobox settings menu.
 For more information about dynarec variables see [Box64 usage](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) and [Box86 usage](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md)
 ### System settings
@@ -51,17 +51,17 @@ To uninstall mobox, use `Backup and restore` menu.
 ## Debugging
 To enable logging - select option 2 in Mobox -> Settings -> Debug settings menu. Path to the log is /sdcard/mobox_log.txt
 
-## Support status
+## Поддержка
 ### Android
-* `Android 10` or higher is recommended.
-### Device
-* Most Android cellphones can run `mobox` and DirectX 9 games using Mesa VirGL.
-* Snapdragon device with Adreno 6xx or Adreno 725-740 is recommended to achieve best performance and compatibility with Turnip+DXVK.
+* Рекомендован `Android 10` или выше.
+### Устройство
+* Большинство Android телефонов может запускать `mobox` и игры с DirectX 9, используя Mesa VirGL.
+* Рекомендовано устройство со Snapdragon с Adreno 6xx или Adreno 725-740 для получения лучшей производительности и совместимости с Turnip+DXVK.
 ### Root
-* Root is not required.
+* Root не требуется.
 
-## Known issues
-* If termux app crashes when trying to enter mobox menu, then remove custom theme scripts:
+## Известные проблемы
+* Если termux вылетает, когда пытаетесь зайти в меню mobox, удалите пользовательские скрипты темы:
 ```bash
 rm -rf $PREFIX/glibc/opt/termux-style
 ```
@@ -69,12 +69,12 @@ rm -rf $PREFIX/glibc/opt/termux-style
 * For SD845 device, disable dri3 in `Compatibility settings` menu
 
 #
-Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
+Большое спасибо Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython и другим за помощь.
 
 [MishkaKolos Discord](https://discord.gg/ZAQnZzbCXq)
 
 
-## Third party applications
+## Сторонние приложения
 
 [glibc-packages](https://github.com/termux-pacman/glibc-packages)
 
