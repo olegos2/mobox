@@ -22,6 +22,8 @@ curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && .
 
 3. Type `mobox` in termux.
 
+4. For some games that use video and audio codecs you may have to install [GStreamer MSVC Runtime](https://gstreamer.freedesktop.org/download/#windows) in Wine.
+
 # Configuration
 ## Wine
 Wine can be installed or uninstalled in `Manage packages` menu.
