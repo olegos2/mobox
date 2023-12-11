@@ -37,6 +37,8 @@ For more information about dynarec variables see [Box64 usage](https://github.co
 To change wine locale, dxvk hud preset or Turnip settings, use `System settings` menu in mobox.
 Fallback resolution is used only when x11 resolution couldn't be detected automatically.
 If you have Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, enable the second option in `select a7xx flickering fix (TU_DEBUG)` in `System settings` menu.
+### Root settings
+If you have root, then you can use OOM Adjuster which is useful if low memory killer stops termux.
 ## Termux-X11 preferences
 * `Display resolution mode` exact
 * `Display resolution` 1280x720
