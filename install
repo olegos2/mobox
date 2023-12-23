@@ -28,6 +28,7 @@ pkg install p7zip -y &>/dev/null
 pkg install xorg-xrandr -y &>/dev/null
 pkg install ncurses-utils -y &>/dev/null
 pkg install hashdeep -y &>/dev/null
+pkg install termux-x11-nightly -y &>/dev/null
 
 wget https://github.com/olegos2/mobox/raw/main/components/termux-x11-1.02.07-0-all.deb &>/dev/null
 dpkg -i termux-x11-1.02.07-0-all.deb &>/dev/null
