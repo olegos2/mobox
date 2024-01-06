@@ -2,6 +2,9 @@
 
 rm ~/x
 
+echo "Installing termux-am"
+pkg install termux-am -y &>/dev/null
+
 termux-setup-storage & sleep 4 &>/dev/null
 
 while true; do
