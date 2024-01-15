@@ -12,7 +12,7 @@
 
 ##
 
-`Mobox` - це проект, розроблений з метою запуску windows x86 додатків у [Termux](https://github.com/termux/termux-app), використовуючи [Box64](https://github.com/ptitSeb/box64) та [Wine](https://www.winehq.org/).
+`Mobox` - це проєкт, розроблений з метою запуску windows x86 додатків у [Termux](https://github.com/termux/termux-app), використовуючи [Box64](https://github.com/ptitSeb/box64) та [Wine](https://www.winehq.org/).
 
 # Встановлення
 1. Встановіть
