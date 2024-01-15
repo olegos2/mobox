@@ -5,6 +5,8 @@
 <a href="https://github.com/olegos2/mobox/blob/main/README-ru.md">Русский</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 Português Brasileiro
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/olegos2/mobox/blob/main/README-pl.md">Polski</a>
 
 ##
 
