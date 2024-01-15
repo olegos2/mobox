@@ -3,8 +3,8 @@
 <a href="https://github.com/olegos2/mobox/tree/main">English</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/olegos2/mobox/blob/main/README-ru.md">Русский</a>
-<a href="https://github.com/olegos2/mobox/blob/main/README-ua.md">Українська</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/olegos2/mobox/blob/main/README-ua.md">Українська</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 Português Brasileiro
 &nbsp;&nbsp;| &nbsp;&nbsp;
