@@ -11,11 +11,11 @@ Polski
 
 ##
 
-`Mobox` jest aplikacją zaprojektowaną aby uruchamiać aplikacje x86 w programie [Termux](https://github.com/termux/termux-app) wykorzystując [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org/).
+`Mobox` jest aplikacją zaprojektowaną aby uruchamiać aplikacje x86 w programie [Termux](https://github.com/termux/termux-app) wykorzystując [Box64](https://github.com/ptitSeb/box64) oraz [Wine](https://www.winehq.org/).
 
 # Instalacja
 1. Zainstaluj
-2. [Termux](https://f-droid.org/repo/com.termux_118.apk),
+[Termux](https://f-droid.org/repo/com.termux_118.apk),
 [Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) oraz
 [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk).
 
