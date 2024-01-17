@@ -57,7 +57,7 @@ function wget-git-q {
 wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"
 . $PREFIX/glibc/opt/package-manager/package-manager
 sync-all
-sync-package wine-ge-custom
+sync-package wine-ge-custom-8-25
 ln -sf $PREFIX/glibc/opt/scripts/mobox $PREFIX/bin/mobox
 
 echo "To start - type \"mobox\""
