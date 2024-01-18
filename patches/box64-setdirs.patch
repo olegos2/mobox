@@ -1,0 +1,45 @@
+diff -uraN a/src/main.c b/src/main.c
+--- a/src/main.c	2023-12-13 19:55:15.000000000 +0500
++++ b/src/main.c	2023-12-13 23:06:35.780622983 +0500
+@@ -1161,12 +1161,8 @@
+     // check BOX64_LD_LIBRARY_PATH and load it
+     LoadEnvPath(&context->box64_ld_lib, ".:lib:lib64:x86_64:bin64:libs64", "BOX64_LD_LIBRARY_PATH");
+     #ifndef TERMUX
+-    if(FileExist("/lib/x86_64-linux-gnu", 0))
+-        AddPath("/lib/x86_64-linux-gnu", &context->box64_ld_lib, 1);
+-    if(FileExist("/usr/lib/x86_64-linux-gnu", 0))
+-        AddPath("/usr/lib/x86_64-linux-gnu", &context->box64_ld_lib, 1);
+-    if(FileExist("/usr/x86_64-linux-gnu/lib", 0))
+-        AddPath("/usr/x86_64-linux-gnu/lib", &context->box64_ld_lib, 1);
++    if(FileExist("/data/data/com.termux/files/usr/glibc/lib/x86_64-linux-gnu", 0))
++        AddPath("/data/data/com.termux/files/usr/glibc/lib/x86_64-linux-gnu", &context->box64_ld_lib, 1);
+     #else
+     //TODO: Add Termux Library Path - Lily
+     if(FileExist("/data/data/com.termux/files/usr/lib/x86_64-linux-gnu", 0))
+@@ -1426,8 +1422,8 @@
+ static void load_rcfiles()
+ {
+     #ifndef TERMUX
+-    if(FileExist("/etc/box64.box64rc", IS_FILE))
+-        LoadRCFile("/etc/box64.box64rc");
++    if(FileExist("/data/data/com.termux/files/usr/glibc/etc/box64.box64rc", IS_FILE))
++        LoadRCFile("/data/data/com.termux/files/usr/glibc/etc/box64.box64rc");
+     #else
+     if(FileExist("/data/data/com.termux/files/usr/etc/box64.box64rc", IS_FILE))
+         LoadRCFile("/data/data/com.termux/files/usr/etc/box64.box64rc");
+diff -uraN a/src/tools/fileutils.c b/src/tools/fileutils.c
+--- a/src/tools/fileutils.c	2023-12-13 19:55:15.000000000 +0500
++++ b/src/tools/fileutils.c	2023-12-13 23:16:37.690682952 +0500
+@@ -127,11 +127,8 @@
+     if ((tmpdir = getenv ("TMPDIR")) != NULL) return tmpdir;
+     if ((tmpdir = getenv ("TEMP")) != NULL)   return tmpdir;
+     if ((tmpdir = getenv ("TMP")) != NULL)    return tmpdir;
+-    if(FileExist("/tmp", 0))                  return "/tmp";
+-    if(FileExist("/var/tmp", 0))              return "/var/tmp";
+-    if(FileExist("/usr/tmp", 0))              return "/usr/tmp";
+ 
+-    return "/tmp";  // meh...
++    return "/data/data/com.termux/files/usr/tmp";  // meh...
+ }
+ 
+ char* LowerCase(const char* s) {
