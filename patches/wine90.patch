@@ -7,7 +7,7 @@ index 53fcc61ccf3..051c62989b6 100644
      asprintf( &dir, "%s/.wineserver/server-%s", config_dir, tmp );
  #else
 -    asprintf( &dir, "/tmp/.wine-%u/server-%s", getuid(), tmp );
-+    asprintf( &dir, "/data/data/com.termux/files/usr/tmp/.wine-%u/server-", getuid(), tmp );
++    asprintf( &dir, "/data/data/com.termux/files/usr/tmp/.wine-%u/server-%s", getuid(), tmp );
  #endif
      return dir;
  }
