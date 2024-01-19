@@ -1,5 +1,5 @@
 diff --git a/dlls/ntdll/unix/server.c b/dlls/ntdll/unix/server.c
-index 53fcc61ccf3..051c62989b6 100644
+index 53fcc61ccf3..8afea94498a 100644
 --- a/dlls/ntdll/unix/server.c
 +++ b/dlls/ntdll/unix/server.c
 @@ -1260,7 +1260,7 @@ static const char *init_server_dir( dev_t dev, ino_t ino )
@@ -20,6 +20,23 @@ index 53fcc61ccf3..051c62989b6 100644
      }
      else if (errno != EEXIST) fatal_perror( "cannot create %s/dosdevices", config_dir );
 
+diff --git a/dlls/ntdll/unix/virtual.c b/dlls/ntdll/unix/virtual.c
+index abe1b4dc4ec..28486585b1a 100644
+--- a/dlls/ntdll/unix/virtual.c
++++ b/dlls/ntdll/unix/virtual.c
+@@ -163,9 +163,9 @@ static void *address_space_start = (void *)0x110000; /* keep DOS area clear */
+ static void *address_space_start = (void *)0x10000;
+ #endif
+ #ifdef _WIN64
+-static void *address_space_limit = (void *)0x7fffffff0000;  /* top of the total available address space */
+-static void *user_space_limit    = (void *)0x7fffffff0000;  /* top of the user address space */
+-static void *working_set_limit   = (void *)0x7fffffff0000;  /* top of the current working set */
++static void *address_space_limit = (void *)0x7fffff0000; /* top of the total available address space */
++static void *user_space_limit    = (void *)0x7fffff0000;  /* top of the user address space */
++static void *working_set_limit   = (void *)0x7fffff0000;  /* top of the current working set */
+ #else
+ static void *address_space_limit = (void *)0xc0000000;
+ static void *user_space_limit    = (void *)0x7fff0000;
 diff --git a/dlls/win32u/driver.c b/dlls/win32u/driver.c
 index bc3409a9e34..833d5f33817 100644
 --- a/dlls/win32u/driver.c
@@ -51,6 +68,19 @@ index bc3409a9e34..833d5f33817 100644
  }
 
  static BOOL nulldrv_CreateWindow( HWND hwnd )
+diff --git a/loader/preloader.c b/loader/preloader.c
+index d0551bae63a..2f8eedeba8e 100644
+--- a/loader/preloader.c
++++ b/loader/preloader.c
+@@ -1447,7 +1447,7 @@ void* wld_start( void **stack )
+         {
+             /* don't warn for low 64k */
+             if (preload_info[i].addr >= (void *)0x10000
+-#ifdef __aarch64__
++#if 1
+                 && preload_info[i].addr < (void *)0x7fffffffff /* ARM64 address space might end here*/
+ #endif
+             )
 diff --git a/programs/winebrowser/main.c b/programs/winebrowser/main.c
 index 24416070152..67cac7fe1df 100644
 --- a/programs/winebrowser/main.c
