@@ -87,18 +87,21 @@ index 36569fa9d5f..3583ef01bc6 100644
      ret = add_mimes(xdg_data_dir, mime_types);
      if (ret)
 diff --git a/server/request.c b/server/request.c
-index 7021741c765..e146910da25 100644
+index 7021741c765..5a4a0dceaea 100644
 --- a/server/request.c
 +++ b/server/request.c
-@@ -663,7 +663,7 @@ static char *create_server_dir( int force )
+@@ -663,9 +663,9 @@ static char *create_server_dir( int force )
      strcpy( server_dir, config_dir );
      strcat( server_dir, "/.wineserver" );
  #else
 -    len += sizeof("/tmp/.wine-") + 12;
 +    len += sizeof("/data/data/com.termux/files/usr/tmp/.wine-") + 12;
      if (!(server_dir = malloc( len ))) fatal_error( "out of memory\n" );
-     sprintf( server_dir, "/tmp/.wine-%u", getuid() );
+-    sprintf( server_dir, "/tmp/.wine-%u", getuid() );
++    sprintf( server_dir, "/data/data/com.termux/files/usr/tmp/.wine-%u", getuid() );
  #endif
+     create_dir( server_dir, &st2 );
+
 diff --git a/server/unicode.c b/server/unicode.c
 index f84520580d7..035be76394e 100644
 --- a/server/unicode.c
