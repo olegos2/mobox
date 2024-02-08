@@ -5,16 +5,15 @@ rm ~/x
 echo "Installing termux-am"
 pkg install termux-am -y &>/dev/null
 
-termux-setup-storage & sleep 4 &>/dev/null
-
-while true; do
-    if [ -e ~/storage ]; then
-        break
-    else
-        echo "Storage permission denied"
-    fi
-    sleep 3
-done
+if [ ! -e ~/storage ]; then
+    case "${TERMUXUSER_ID:-}" in ''|*[!0-9]*|0[0-9]*) TERMUXUSER_ID=0;; esac
+    am broadcast --user "$TERMUX__USER_ID" --es com.termux.app.reload_style storage -a com.termux.app.reload_style com.termux > /dev/null
+fi
+sleep 1
+if [ ! -e ~/storage ]; then
+    echo "Storage permission denied"
+    return 1
+fi
 
 echo "Installing termux packages"
 apt-get clean
@@ -43,21 +42,57 @@ if [ -e $PREFIX/glibc ]; then
     fi
 fi
 
+INSTALL_WOW64=0
+
+echo "Select an option"
+echo "1) Install previous mobox with box86"
+echo "2) Install new mobox wow64 version"
+echo ""
+echo -n "Selected number: "
+read i
+case "$i" in
+1)
+    INSTALL_WOW64=0
+;;
+2)
+    INSTALL_WOW64=1
+;;
+*)
+    return 1
+;;
+esac
+
 echo "Installing mobox"
 
-echo "Updating package manager"
-mkdir -p $PREFIX/glibc/opt/package-manager/installed
-echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP
-PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token
-. $PREFIX/glibc/opt/package-manager/token
 function wget-git-q {
     wget -q --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
     return $?
 }
-wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"
+
+echo "Updating package manager"
+mkdir -p $PREFIX/glibc/opt/package-manager/installed
+
+if [ "$INSTALL_WOW64" = "1" ]; then
+echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs
+PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token
+else
+echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP
+PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token
+fi
+
+. $PREFIX/glibc/opt/package-manager/token
+if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then
+    echo "Download failed"
+    return 1
+fi
 . $PREFIX/glibc/opt/package-manager/package-manager
 sync-all
-sync-package wine-ge-custom-8-25
-ln -sf $PREFIX/glibc/opt/scripts/mobox $PREFIX/bin/mobox
 
+if [ "$INSTALL_WOW64" = "1" ]; then
+sync-package wine-9.1-vanilla-wow64
+else
+sync-package wine-ge-custom-8-25
+fi
+
+ln -sf $PREFIX/glibc/opt/scripts/mobox $PREFIX/bin/mobox
 echo "To start - type \"mobox\""
