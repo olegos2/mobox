@@ -1,0 +1,40 @@
+--- a/loader/preloader.c	2023-10-14 05:00:12.000000000 +0800
++++ b/loader/preloader.c.new	2023-10-24 19:04:06.351772428 +0800
+@@ -1447,7 +1447,7 @@
+         {
+             /* don't warn for low 64k */
+             if (preload_info[i].addr >= (void *)0x10000
+-#ifdef __aarch64__
++#if 1
+                 && preload_info[i].addr < (void *)0x7fffffffff /* ARM64 address space might end here*/
+ #endif
+             )
+--- a/dlls/ntdll/unix/virtual.c.orig	2023-10-14 05:00:12.000000000 +0800
++++ b/dlls/ntdll/unix/virtual.c	2023-10-24 21:55:03.330120144 +0800
+@@ -166,14 +166,14 @@
+ #ifdef __aarch64__
+ static void *address_space_limit = (void *)0xffffffff0000;  /* top of the total available address space */
+ #elif defined(_WIN64)
+-static void *address_space_limit = (void *)0x7fffffff0000;
++static void *address_space_limit = (void *)0x7fffff0000;
+ #else
+ static void *address_space_limit = (void *)0xc0000000;
+ #endif
+ 
+ #ifdef _WIN64
+-static void *user_space_limit    = (void *)0x7fffffff0000;  /* top of the user address space */
+-static void *working_set_limit   = (void *)0x7fffffff0000;  /* top of the current working set */
++static void *user_space_limit    = (void *)0x7fffff0000;  /* top of the user address space */
++static void *working_set_limit   = (void *)0x7fffff0000;  /* top of the current working set */
+ #else
+ static void *user_space_limit    = (void *)0x7fff0000;
+ static void *working_set_limit   = (void *)0x7fff0000;
+@@ -557,7 +557,7 @@
+     /* if we don't have a preloader, try to reserve the space now */
+     reserve_area( (void *)0x000000010000, (void *)0x000068000000 );
+     reserve_area( (void *)0x00007f000000, (void *)0x00007fff0000 );
+-    reserve_area( (void *)0x7ffffe000000, (void *)0x7fffffff0000 );
++    reserve_area( (void *)0x7ffe000000, (void *)0x7fffff0000 );
+ 
+ #endif
+ }
