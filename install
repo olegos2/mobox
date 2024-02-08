@@ -5,15 +5,16 @@ rm ~/x
 echo "Installing termux-am"
 pkg install termux-am -y &>/dev/null
 
-if [ ! -e ~/storage ]; then
-    case "${TERMUXUSER_ID:-}" in ''|*[!0-9]*|0[0-9]*) TERMUXUSER_ID=0;; esac
-    am broadcast --user "$TERMUX__USER_ID" --es com.termux.app.reload_style storage -a com.termux.app.reload_style com.termux > /dev/null
-fi
-sleep 1
-if [ ! -e ~/storage ]; then
-    echo "Storage permission denied"
-    return 1
-fi
+termux-setup-storage & sleep 4 &>/dev/null
+
+while true; do
+    if [ -d ~/storage/shared ]; then
+        break
+    else
+        echo "Storage permission denied"
+    fi
+    sleep 3
+done
 
 echo "Installing termux packages"
 apt-get clean
