@@ -76,6 +76,9 @@ rm -rf $PREFIX/glibc/opt/termux-style
 * Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
 * For SD845 device, disable dri3 in `Compatibility settings` menu
 
+## Support mobox
+[boosty](https://boosty.to/olegos/donate)
+
 #
 Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython and others for help.
 

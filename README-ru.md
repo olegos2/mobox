@@ -76,6 +76,9 @@ rm -rf $PREFIX/glibc/opt/termux-style
 * У некоторых устройств могут быть проблемы с зависанием создания префикса при установке PhysX, в таком случае измените настройки в меню `Compatibility settings`
 * Для устройства с SD845, отключите dri3 в меню `Compatibility settings`
 
+## Поддержать mobox
+[boosty](https://boosty.to/olegos/donate)
+
 #
 Большое спасибо Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython и другим за помощь.
 

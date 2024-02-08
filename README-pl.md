@@ -75,6 +75,9 @@ rm -rf $PREFIX/glibc/opt/termux-style
 ```
 * Niektóre urządzenia mogą zawieszać się w momencie tworzenia prefixu oraz instalacji PhysX, w takim wypadku zmień konfigurację w `Compatibility settings`
 
+## Wesprzyj mobox
+[boosty](https://boosty.to/olegos/donate)
+
 #
 Wielkie dzięki dla Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython i innym za pomoc.
 
