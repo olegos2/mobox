@@ -3,9 +3,9 @@
 rm ~/x
 
 echo "Installing termux-am"
-pkg install termux-am -y &>/dev/null
+pkg install termux-am -y
 
-termux-setup-storage & sleep 4 &>/dev/null
+termux-setup-storage & sleep 4
 
 while true; do
     if [ -d ~/storage/shared ]; then
@@ -18,26 +18,26 @@ done
 
 echo "Installing termux packages"
 apt-get clean
-apt-get update >/dev/null 2>&1
-apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade >/dev/null 2>&1
-pkg install x11-repo -y &>/dev/null
-pkg install pulseaudio -y &>/dev/null
-pkg install xwayland -y &>/dev/null
-pkg install wget -y &>/dev/null
-pkg install tsu -y &>/dev/null
-pkg install root-repo -y &>/dev/null
-pkg install patchelf -y &>/dev/null
-pkg install p7zip -y &>/dev/null
-pkg install xorg-xrandr -y &>/dev/null
-pkg install ncurses-utils -y &>/dev/null
-pkg install hashdeep -y &>/dev/null
-pkg install termux-x11-nightly -y &>/dev/null
+apt-get update
+apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade
+pkg install x11-repo -y
+pkg install pulseaudio -y
+pkg install xwayland -y
+pkg install wget -y
+pkg install tsu -y
+pkg install root-repo -y
+pkg install patchelf -y
+pkg install p7zip -y
+pkg install xorg-xrandr -y
+pkg install ncurses-utils -y
+pkg install hashdeep -y
+pkg install termux-x11-nightly -y
 
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
     if [ "$i" = "Y" ] || [ "$i" = "y" ]; then
-        rm -rf $PREFIX/glibc
+        mv -r $PREFIX/glibc $PREFIX/glibc-backup
     else
         return 1
     fi
