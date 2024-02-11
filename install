@@ -32,7 +32,8 @@ pkg install xorg-xrandr -y
 pkg install ncurses-utils -y
 pkg install hashdeep -y
 pkg install termux-x11-nightly -y
-
+echo ""
+echo "-----------------------------------------"
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
