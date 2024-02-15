@@ -42,7 +42,7 @@ if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
     if [ "$i" = "Y" ] || [ "$i" = "y" ]; then
-        mv -r $PREFIX/glibc $PREFIX/glibc-backup-modbox
+        mv -r $PREFIX/glibc $PREFIX/glibc-backup-mobox
     else
         return 1
     fi
