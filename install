@@ -33,13 +33,6 @@ pkg install ncurses-utils -y &>/dev/null
 pkg install hashdeep -y &>/dev/null
 pkg install termux-x11-nightly -y &>/dev/null
 
-wget https://mirror.accum.se/mirror/termux.dev/termux-main/pool/main/libl/liblzma/liblzma_5.4.6_aarch64.deb &>/dev/null
-wget https://mirror.accum.se/mirror/termux.dev/termux-main/pool/main/x/xz-utils/xz-utils_5.4.6_aarch64.deb &>/dev/null
-dpkg -i liblzma_5.4.6_aarch64.deb &>/dev/null
-dpkg -i xz-utils_5.4.6_aarch64.deb &>/dev/null
-rm liblzma_5.4.6_aarch64.deb &>/dev/null
-rm xz-utils_5.4.6_aarch64.deb &>/dev/null
-
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
