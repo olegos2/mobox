@@ -33,6 +33,16 @@ pkg install ncurses-utils -y &>/dev/null
 pkg install hashdeep -y &>/dev/null
 pkg install termux-x11-nightly -y &>/dev/null
 
+wget https://raw.githubusercontent.com/olegos2/mobox/main/components/liblzma_5.6.0-1_aarch64.deb &>/dev/null
+wget https://raw.githubusercontent.com/olegos2/mobox/main/components/liblzma-static_5.6.0-1_aarch64.deb &>/dev/null
+wget https://raw.githubusercontent.com/olegos2/mobox/main/components/xz-utils_5.6.0-1_aarch64.deb &>/dev/null
+dpkg -i liblzma_5.6.0-1_aarch64.deb &>/dev/null
+dpkg -i liblzma-static_5.6.0-1_aarch64.deb &>/dev/null
+dpkg -i xz-utils_5.6.0-1_aarch64.deb &>/dev/null
+rm liblzma_5.6.0-1_aarch64.deb &>/dev/null
+rm liblzma-static_5.6.0-1_aarch64.deb &>/dev/null
+rm xz-utils_5.6.0-1_aarch64.deb &>/dev/null
+
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
