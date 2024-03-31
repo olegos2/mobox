@@ -9,6 +9,8 @@
 Português Brasileiro
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/olegos2/mobox/blob/main/README-pl.md">Polski</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/olegos2/mobox/blob/main/README-ja.md">日本語</a>
 
 ##
 
