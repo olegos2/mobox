@@ -57,20 +57,20 @@ If you have root, then you can use OOM Adjuster which is useful if low memory ki
 * `Show additional keyboard` OFF
 * `Prefer scancodes when possible` ON
 ## Controls 🎮
-For touch controls [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk) app is required. Preconfigured Input Bridge profiles are also avaiable in [here](https://github.com/WanderRainID/mobox/blob/main/Input-Bridge-Profiles.md).
+For touch controls [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk) app is required. Preconfigured Input Bridge profiles are also avaiable [here](https://github.com/WanderRainID/mobox/blob/main/Input-Bridge-Profiles.md).
 
 ### How to setup Input Bridge
 1. Make sure Input Bridge has been installed properly
 2. Open the app and the permission request pop-up will be display
-3. Find Input Bridge and enable ```Allow display over other apps```
-4. Return to the app then select the ```+``` sign
-5. Switch to ```touch control``` and start mapping your own control scheme by select ```edit controls```. The app will autosave by itself
+3. Find Input Bridge and enable `Allow display over other apps`
+4. Return to the app then select the `+` sign
+5. Switch to `touch control` and start mapping your own control scheme by select `edit controls`. The app will autosave by itself
 6. The next you start mobox, a gear icon will be show up in the top right screen
 7. Press the gear then the HUD from your control scheme will be display
 8. Enjoy your game ᗜˬᗜ
 
 ### How to import Input Bridge profiles
-1. Follow the previous intrucktion from number 1-3
+1. Follow the previous tutorial from number 1-3
 2. This time you need select `import` instead the `+` sign
 3. Find the profile with extension `.ibp` then select it
 4. Congratulation, your Input Bridge is ready for action ᗜˬᗜ
