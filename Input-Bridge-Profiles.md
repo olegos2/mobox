@@ -1,6 +1,7 @@
 # Input-Bridge Profiles
 
 If your Game are not in the list, you may considering using the [General (arrow key)](https://raw.githubusercontent.com/WanderRainID/mobox/main/components/Input-Bridge-Profiles/General(arrow).ibp.7z) or [General](https://raw.githubusercontent.com/WanderRainID/mobox/main/components/Input-Bridge-Profiles/General.ibp.7z).
+
 You can also submit your own profile here by forking and start a pull request in this repo
 
 |       Games                     |   Uploader   |                                                             Links                                                                                  |
