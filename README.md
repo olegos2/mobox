@@ -57,7 +57,7 @@ If you have root, then you can use OOM Adjuster which is useful if low memory ki
 * `Show additional keyboard` OFF
 * `Prefer scancodes when possible` ON
 ## Controls 🎮
-For touch controls [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk) app is required. Preconfigured Input Bridge profiles are also avaiable [here](https://github.com/ZanDev32/mobox/blob/main/Input-Bridge-Profiles.md).
+For touch controls [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk) app is required. Preconfigured Input Bridge profiles are also avaiable [here](https://github.com/olegos2/mobox/blob/main/Input-Bridge-Profiles.md).
 
 ### How to setup Input Bridge
 1. Make sure Input Bridge has been installed properly
