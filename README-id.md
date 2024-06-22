@@ -15,6 +15,8 @@ English
 <a href="https://github.com/olegos2/mobox/blob/main/README-zh_CN.md">简体中文</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 <a href="https://github.com/olegos2/mobox/blob/main/README-id.md">Bahasa Indonesia</a>
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/olegos2/mobox/blob/main/README-es.md">Español</a>
 
 ##
 
