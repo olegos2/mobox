@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: Look for sync-all function
-
 # Loads up our token for downloading from gitlab
 . $PREFIX/glibc/opt/package-manager/token
 
@@ -49,7 +47,7 @@ declare -a wine_packages=(\
 	wine-9.3-vanilla-wow64 \
 )
 
-# ?
+# A list of outdated packages
 declare -a outdated_packages=(\
 	d3d \
 	mesa \

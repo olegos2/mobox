@@ -69,10 +69,12 @@ esac
 echo "Installing mobox"
 
 # Download ESSENTIAL files from gitlab(hidden behind a project id and private token)
-function wget-git-q {
-    wget --show-progress --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
-    return $?
-}
+
+# Redundant as we're not downloading anything, instead we let package-manager handle it
+# function wget-git-q {
+#     wget --show-progress --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
+#     return $?
+# }
 
 echo "Updating package manager"
 
@@ -100,7 +102,7 @@ fi
 # fi
 
 # Use our repo's package manager
-curl -o "$PREFIX/glibc/opt/package-manager/package-manager" https://raw.githubusercontent.com/EDLLT/mobox/main/package-manager
+curl https://raw.githubusercontent.com/EDLLT/mobox/main/package-manager -o "$PREFIX/glibc/opt/package-manager/package-manager"
 
 # Executes the package manager script which sets up everything mobox related
 . $PREFIX/glibc/opt/package-manager/package-manager
