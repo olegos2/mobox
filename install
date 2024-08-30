@@ -81,7 +81,7 @@ echo "Updating package manager"
 # Create the following directory(It doesn't exist since we'd removed glibc earlier)
 mkdir -p $PREFIX/glibc/opt/package-manager/installed
 
-# depending on what we selected earlier, set the private token and project id
+# Depending on what we selected earlier, set the private token and project id
 if [ "$INSTALL_WOW64" = "1" ]; then
     echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs
     PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token
