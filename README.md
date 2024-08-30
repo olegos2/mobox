@@ -1,3 +1,14 @@
+> [!WARNING]
+> This fork has been modified to not use Project IDs and Private tokens that download from gitlab unlike the original mobox.
+>
+> Instead, all the base packages, wine packages and
+> the package manager itself are taken from [this repo](https://github.com/EDLLT/mobox_packages) by the installer script. The installer and the package-manager have also been modified to be more verbose
+> about what they are doing in the background. UNLESS you use the non-wow64 version in which case it will default to using olegos2's gitlab project/token approach
+>
+> 
+> The instructions, usage and everything else remains exactly the same.
+
+# README
 ![logo](docs/img/logo.png "logo")
 
 English
@@ -29,7 +40,7 @@ English
 2. Open termux and paste command
 
 ```bash
-curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && . ~/x
+curl -o ~/x https://raw.githubusercontent.com/EDLLT/mobox/main/install && . ~/x
 ```
 
 3. Type `mobox` in termux.

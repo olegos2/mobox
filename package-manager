@@ -1,0 +1,191 @@
+#!/bin/bash
+
+# Loads up our token for downloading from gitlab
+. $PREFIX/glibc/opt/package-manager/token
+
+# A dictionary in bash containing latest* versions of packages
+declare -A packages_list=(
+	[box64-binaries]=10
+	[dxvk]=2
+	[glibc-prefix]=2
+	[prefix-apps]=2
+	[scripts]=27
+	[turnip]=8
+	[virgl-mesa]=1
+	[wined3d]=1
+	[wine-9.0-staging-wow64]=1
+	[wine-8.18-staging-wow64]=1
+	[wine-8.18-vanilla-wow64]=1
+	[wine-9.1-vanilla-wow64]=2
+	[wine-9.2-vanilla-wow64]=1
+	[wine-9.3-vanilla-wow64]=1
+	[libudev]=1
+	[en-ru-locale]=1
+)
+
+# A list in bash containing names of base_packages which are installed during sync_all*
+declare -a base_packages=(\
+	box64-binaries \
+	dxvk \
+	glibc-prefix \
+	prefix-apps \
+	scripts \
+	turnip \
+	virgl-mesa \
+	wined3d \
+	libudev \
+	en-ru-locale \
+)
+
+# A list of available wine packages to download for mobox
+declare -a wine_packages=(\
+	wine-9.0-staging-wow64 \
+	wine-8.18-staging-wow64 \
+	wine-8.18-vanilla-wow64 \
+	wine-9.1-vanilla-wow64 \
+	wine-9.2-vanilla-wow64 \
+	wine-9.3-vanilla-wow64 \
+)
+
+# A list of outdated packages
+declare -a outdated_packages=(\
+	d3d \
+	mesa \
+	wine-ge-custom-8-25 \
+)
+
+function wget-git {
+	#wget --show-progress --timeout=6 --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
+	wget --show-progress --timeout=6 --retry-connrefused --tries=0 "https://github.com/EDLLT/mobox_packages/raw/master/$1?download=" -O $2
+	return $?
+}
+
+function wget-git-q {
+	wget-git "$@"
+	return $?
+}
+
+function remove-package {
+	if [ -e "$PREFIX/glibc/opt/package-manager/installed/$1" ] && [ -s "$PREFIX/glibc/opt/package-manager/installed/$1_lists" ]; then
+		echo "Removing $1"
+		while read i; do
+			rm -rf "$PREFIX/$i"
+		done < "$PREFIX/glibc/opt/package-manager/installed/$1_lists"
+		rm -rf "$PREFIX/glibc/opt/package-manager/installed/$1"
+		rm -rf "$PREFIX/glibc/opt/package-manager/installed/$1_lists"
+		rm -rf "$PREFIX/glibc/opt/package-manager/installed/$1_md5"
+		if [[ ${wine_packages[@]} =~ $1 ]]; then
+			echo "Removing $1 prefix"
+			rm -rf "$PREFIX/glibc/$1"
+		fi
+	fi
+}
+
+function sync-package {
+	# Check the current version of the package to be installed if it exists
+	if [ -e "$PREFIX/glibc/opt/package-manager/installed/$1" ]; then
+		local_version=$(cat "$PREFIX/glibc/opt/package-manager/installed/$1")
+	else
+		local_version=0
+	fi
+
+	# Check the dictionary of latest package versions available
+	version=${packages_list[$1]}
+	
+	# If the package list's version is greater than the one locally installed then install the package
+	if ((version > local_version)); then
+		
+		mkdir -p $PREFIX/glibc/opt/package-manager/temp
+		wget-git "$1.tar.xz" "$PREFIX/glibc/opt/package-manager/temp/$1.tar.xz"
+		if [ "$?" = "0" ]; then
+			# Remove a folder with the name of the package we're trying to install if it exists
+			rm -rf "$PREFIX/glibc/opt/package-manager/temp/$1"
+			
+			# Create a folder with the name of the package we're trying to install
+			mkdir -p "$PREFIX/glibc/opt/package-manager/temp/$1"
+
+			# Extract our tar to the newly created folder
+			tar -xf "$PREFIX/glibc/opt/package-manager/temp/$1.tar.xz" -C "$PREFIX/glibc/opt/package-manager/temp/$1"
+
+			# Uninstall the package if it was previously installed before attempting to install the new one
+			remove-package $1
+
+
+			echo "Updating $1"
+
+			# This is how the package manager tracks the packages installed
+			find "$PREFIX/glibc/opt/package-manager/temp/$1" -type f | sed "s|^/data/data/com.termux/files/usr/glibc/opt/package-manager/temp/$1/||">"$PREFIX/glibc/opt/package-manager/installed/$1_lists"
+			md5deep -sr "$PREFIX/glibc/opt/package-manager/temp/$1" | sed "s| /data/data/com.termux/files/usr/glibc/opt/package-manager/temp/$1/| |">"$PREFIX/glibc/opt/package-manager/installed/$1_md5"
+			
+			# Yes, every single package installed has a glibc directory inside it
+			# We are now extracting them all to the prefix
+			cp -rf "$PREFIX/glibc/opt/package-manager/temp/$1/glibc" $PREFIX
+			echo "$version">"$PREFIX/glibc/opt/package-manager/installed/$1"
+		else
+			echo "Couldn't update $1: download failed"
+			rm "$PREFIX/glibc/opt/package-manager/temp/$1.tar.xz"
+			rm -rf "$PREFIX/glibc/opt/package-manager/temp/$1"
+			return 1
+		fi
+
+		# Delete the tar file and folder we created
+		rm "$PREFIX/glibc/opt/package-manager/temp/$1.tar.xz"
+		rm -rf "$PREFIX/glibc/opt/package-manager/temp/$1"
+	fi
+	return 0
+}
+
+function validate-package {
+	echo "Checking md5 for $1"
+	if [ ! -e "$PREFIX/glibc/opt/package-manager/installed/$1_md5" ]; then
+		echo "$1 md5 not found"
+		return 1
+	fi
+	cd $PREFIX
+	md5sum -c "$PREFIX/glibc/opt/package-manager/installed/$1_md5"
+	if [ "$?" = "0" ]; then
+		cd
+		echo "OK"
+	else
+		cd
+		echo "Mismatch"
+		rm -rf "$PREFIX/glibc/opt/package-manager/installed/$1"
+		sync-package $1
+	fi
+}
+
+
+function sync-all {
+	echo "Syncing packages"
+	mkdir -p $PREFIX/glibc/opt/package-manager/installed
+
+	# Remove outdated packages
+	for i in "${outdated_packages[@]}"; do
+		remove-package $i
+	done
+
+	# Download every package from the base_packages list
+	for i in "${base_packages[@]}"; do
+		sync-package $i
+	done
+
+	# Download all the wine packages from the wine_packages list
+	for i in "${wine_packages[@]}"; do
+		if [ -e "$PREFIX/glibc/opt/package-manager/installed/$i" ]; then
+			sync-package $i
+		fi
+	done
+}
+
+function validate-all {
+	echo "Validating packages"
+	mkdir -p $PREFIX/glibc/opt/package-manager/installed
+	for i in "${base_packages[@]}"; do
+		validate-package $i
+	done
+	for i in "${wine_packages[@]}"; do
+		if [ -e "$PREFIX/glibc/opt/package-manager/installed/$i" ]; then
+			validate-package $i
+		fi
+	done
+}
