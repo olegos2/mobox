@@ -114,9 +114,9 @@ sync-all
 
 # Installs wine
 if [ "$INSTALL_WOW64" = "1" ]; then
-sync-package wine-9.3-vanilla-wow64
+    sync-package wine-9.3-vanilla-wow64
 else
-sync-package wine-ge-custom-8-25
+    sync-package wine-ge-custom-8-25
 fi
 
 # Create a symlink for mobox
