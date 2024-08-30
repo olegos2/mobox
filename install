@@ -83,11 +83,11 @@ mkdir -p $PREFIX/glibc/opt/package-manager/installed
 
 # depending on what we selected earlier, set the private token and project id
 if [ "$INSTALL_WOW64" = "1" ]; then
-echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs
-PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token
+    echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs
+    PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token
 else
-echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP
-PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token
+    echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP
+    PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token
 fi
 
 # Loads up our private token and project id into our current shell session
@@ -95,14 +95,15 @@ fi
 
 # Downloads the package-manager script
 
-# {COMMENTED OUT! We want to use the package manager that we have instead}
-# if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then
-#     echo "Download failed"
-#     return 1
-# fi
-
-# Use our repo's package manager
-curl https://raw.githubusercontent.com/EDLLT/mobox/main/package-manager -o "$PREFIX/glibc/opt/package-manager/package-manager"
+# Use our repo's package manager only if wow64 is selected(As I haven't uploaded the non-wow64 versions to github)
+if [ "$INSTALL_WOW64" = "1" ]; then
+    curl https://raw.githubusercontent.com/EDLLT/mobox/main/package-manager -o "$PREFIX/glibc/opt/package-manager/package-manager"
+else
+    if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then
+        echo "Download failed"
+        return 1
+    fi
+fi
 
 # Executes the package manager script which sets up everything mobox related
 . $PREFIX/glibc/opt/package-manager/package-manager
