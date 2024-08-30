@@ -3,9 +3,9 @@
 rm ~/x
 
 echo "Installing termux-am"
-pkg install termux-am -y &>/dev/null
+pkg install termux-am -y
 
-termux-setup-storage & sleep 4 &>/dev/null
+termux-setup-storage & sleep 4
 
 while true; do
     if [ -d ~/storage/shared ]; then
@@ -16,23 +16,25 @@ while true; do
     sleep 3
 done
 
+# Clean and install all required dependencies
 echo "Installing termux packages"
 apt-get clean
-apt-get update >/dev/null 2>&1
-apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade >/dev/null 2>&1
-pkg install x11-repo -y &>/dev/null
-pkg install pulseaudio -y &>/dev/null
-pkg install xwayland -y &>/dev/null
-pkg install wget -y &>/dev/null
-pkg install tsu -y &>/dev/null
-pkg install root-repo -y &>/dev/null
-pkg install patchelf -y &>/dev/null
-pkg install p7zip -y &>/dev/null
-pkg install xorg-xrandr -y &>/dev/null
-pkg install ncurses-utils -y &>/dev/null
-pkg install hashdeep -y &>/dev/null
-pkg install termux-x11-nightly -y &>/dev/null
+apt-get update >/dev/null
+apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade >/dev/null
+pkg install x11-repo -y
+pkg install pulseaudio -y
+pkg install xwayland -y
+pkg install wget -y
+pkg install tsu -y
+pkg install root-repo -y
+pkg install patchelf -y
+pkg install p7zip -y
+pkg install xorg-xrandr -y
+pkg install ncurses-utils -y
+pkg install hashdeep -y
+pkg install termux-x11-nightly -y
 
+# Remove previous glibc
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
     read i
@@ -43,6 +45,7 @@ if [ -e $PREFIX/glibc ]; then
     fi
 fi
 
+# Select new wow64 wine or wine-ge
 INSTALL_WOW64=0
 
 echo "Select an option"
@@ -65,14 +68,18 @@ esac
 
 echo "Installing mobox"
 
+# Download ESSENTIAL files from gitlab(hidden behind a project id and private token)
 function wget-git-q {
-    wget -q --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
+    wget --show-progress --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
     return $?
 }
 
 echo "Updating package manager"
+
+# Create the following directory(It doesn't exist since we'd removed glibc earlier)
 mkdir -p $PREFIX/glibc/opt/package-manager/installed
 
+# depending on what we selected earlier, set the private token and project id
 if [ "$INSTALL_WOW64" = "1" ]; then
 echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs
 PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token
@@ -81,19 +88,34 @@ echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP
 PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token
 fi
 
+# Loads up our private token and project id into our current shell session
 . $PREFIX/glibc/opt/package-manager/token
-if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then
-    echo "Download failed"
-    return 1
-fi
+
+# Downloads the package-manager script
+
+# {COMMENTED OUT! We want to use the package manager that we have instead}
+# if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then
+#     echo "Download failed"
+#     return 1
+# fi
+
+# Use this repo's package manager
+cp package-manager "$PREFIX/glibc/opt/package-manager/package-manager"
+
+# Executes the package manager script which sets up everything mobox related
 . $PREFIX/glibc/opt/package-manager/package-manager
+
+# This is what installs everything mobox needs(base packages and wine?*)
 sync-all
 
+
+# Installs wine
 if [ "$INSTALL_WOW64" = "1" ]; then
 sync-package wine-9.3-vanilla-wow64
 else
 sync-package wine-ge-custom-8-25
 fi
 
+# Create a symlink for mobox
 ln -sf $PREFIX/glibc/opt/scripts/mobox $PREFIX/bin/mobox
 echo "To start - type \"mobox\""
