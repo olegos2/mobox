@@ -99,8 +99,8 @@ fi
 #     return 1
 # fi
 
-# Use this repo's package manager
-cp package-manager "$PREFIX/glibc/opt/package-manager/package-manager"
+# Use our repo's package manager
+curl -o "$PREFIX/glibc/opt/package-manager/package-manager" https://raw.githubusercontent.com/EDLLT/mobox/main/package-manager
 
 # Executes the package manager script which sets up everything mobox related
 . $PREFIX/glibc/opt/package-manager/package-manager
