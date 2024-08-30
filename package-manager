@@ -60,7 +60,7 @@ function wget-git {
 }
 
 function wget-git-q {
-	wget --show-progress --timeout=6 --retry-connrefused --tries=0 --header "PRIVATE-TOKEN: $PRIVATE_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ID/repository/files/$1/raw?ref=main" -O $2
+	wget-git "$@"
 	return $?
 }
 
