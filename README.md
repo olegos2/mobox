@@ -40,7 +40,7 @@ English
 2. Open termux and paste command
 
 ```bash
-curl -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && . ~/x
+curl -o ~/x https://raw.githubusercontent.com/EDLLT/mobox/main/install && . ~/x
 ```
 
 3. Type `mobox` in termux.
