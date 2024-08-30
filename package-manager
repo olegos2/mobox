@@ -5,22 +5,22 @@
 
 # A dictionary in bash containing latest* versions of packages
 declare -A packages_list=(
-	      [box64-binaries]=10
-	                [dxvk]=2
-	        [glibc-prefix]=2
-	         [prefix-apps]=2
-	             [scripts]=27
-	              [turnip]=8
-	          [virgl-mesa]=1
-	             [wined3d]=1
-  [wine-9.0-staging-wow64]=1
- [wine-8.18-staging-wow64]=1
- [wine-8.18-vanilla-wow64]=1
-  [wine-9.1-vanilla-wow64]=2
-  [wine-9.2-vanilla-wow64]=1
-  [wine-9.3-vanilla-wow64]=1
-                 [libudev]=1
-            [en-ru-locale]=1
+	[box64-binaries]=10
+	[dxvk]=2
+	[glibc-prefix]=2
+	[prefix-apps]=2
+	[scripts]=27
+	[turnip]=8
+	[virgl-mesa]=1
+	[wined3d]=1
+	[wine-9.0-staging-wow64]=1
+	[wine-8.18-staging-wow64]=1
+	[wine-8.18-vanilla-wow64]=1
+	[wine-9.1-vanilla-wow64]=2
+	[wine-9.2-vanilla-wow64]=1
+	[wine-9.3-vanilla-wow64]=1
+	[libudev]=1
+	[en-ru-locale]=1
 )
 
 # A list in bash containing names of base_packages which are installed during sync_all*
