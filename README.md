@@ -18,11 +18,11 @@ English
 
 ##
 
-`Mobox` is a project designed to run windows x86 applications in [Termux](https://github.com/termux/termux-app) using [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org/).
+`Mobox` is a project designed to run windows x86 applications in [Termux](https://github.com/termux/termux-app) using [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org).
 
 # Installation
 1. Install
-[Termux](https://f-droid.org/repo/com.termux_118.apk),
+[Termux](https://f-droid.org/repo/com.termux_1000.apk),
 [Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) and
 [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk).
 
