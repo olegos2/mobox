@@ -20,7 +20,7 @@ English
 
 `Mobox` is a project designed to run windows x86 applications in [Termux](https://github.com/termux/termux-app) using [Box64](https://github.com/ptitSeb/box64) and [Wine](https://www.winehq.org/).
 
-# Installation
+# Installation 📲
 1. Install
 [Termux](https://f-droid.org/repo/com.termux_118.apk),
 [Termux-X11](https://raw.githubusercontent.com/olegos2/mobox/main/components/termux-x11.apk) and
@@ -34,12 +34,12 @@ curl -s -o ~/x https://raw.githubusercontent.com/olegos2/mobox/main/install && .
 
 3. Type `mobox` in termux.
 
-# Configuration
-## Wine
+# Configuration ⚙️
+## Wine 🍷
 Wine can be installed or uninstalled in `Manage packages` menu.
 To select wine container, use option 4 in main menu.
 Mesa VirGL, Turnip, Wine Mono and Gecko can be installed in Wine Start Menu.
-## Settings
+## Settings ⚙️
 ### Box86 and Box64 dynarec variables
 There are two switchable menus to change dynarec variables in mobox settings menu.
 For more information about dynarec variables see [Box64 usage](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md) and [Box86 usage](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md)
@@ -47,9 +47,9 @@ For more information about dynarec variables see [Box64 usage](https://github.co
 To change wine locale, dxvk hud preset or Turnip settings, use `System settings` menu in mobox.
 Fallback resolution is used only when x11 resolution couldn't be detected automatically.
 If you have Snapdragon 8 Gen 1, 8+ Gen 1, 7+ Gen 2, enable the second option in `select a7xx flickering fix (TU_DEBUG)` in `System settings` menu.
-### Root settings
+### Root settings 
 If you have root, then you can use OOM Adjuster which is useful if low memory killer stops termux.
-## Termux-X11 preferences
+## Termux-X11 preferences ⚙️
 * `Display resolution mode` exact
 * `Display resolution` 1280x720
 * `Reseed Screen While Soft Keyboard is open` OFF
@@ -58,23 +58,40 @@ If you have root, then you can use OOM Adjuster which is useful if low memory ki
 * `Hide display cutout` ON
 * `Show additional keyboard` OFF
 * `Prefer scancodes when possible` ON
-## Controls
-For touch controls Input Bridge app is required
-## Uninstall
+## Controls 🎮
+For touch controls [Input Bridge](https://raw.githubusercontent.com/olegos2/mobox/main/components/inputbridge.apk) app is required. Preconfigured Input Bridge profiles are also avaiable [here](https://github.com/olegos2/mobox/blob/main/Input-Bridge-Profiles.md).
+
+### How to setup Input Bridge
+1. Make sure Input Bridge has been installed properly
+2. Open the app and the permission request pop-up will be display
+3. Find Input Bridge and enable `Allow display over other apps`
+4. Return to the app then select the `+` sign
+5. Switch to `touch control` and start mapping your own control scheme by select `edit controls`. The app will autosave by itself
+6. The next you start mobox, a gear icon will be show up in the top right screen
+7. Press the gear then the HUD from your control scheme will be display
+8. Enjoy your game ᗜˬᗜ
+
+### How to import Input Bridge profiles
+1. Follow the previous tutorial from number 1-3
+2. This time you need select `import` instead the `+` sign
+3. Find the profile with extension `.ibp` then select it
+4. Congratulation, your Input Bridge is ready for action ᗜˬᗜ
+
+## Uninstall 🗑️
 To uninstall mobox, use `Backup and restore` menu.
-## Debugging
+## Debugging 🧑‍💻
 To enable logging - select option 2 in Mobox -> Settings -> Debug settings menu. Path to the log is /sdcard/mobox_log.txt
 
-## Support status
+## Support status 📲
 ### Android
 * `Android 10` or higher is recommended.
 ### Device
 * Most Android cellphones can run `mobox` and DirectX 9 games using Mesa VirGL.
 * Snapdragon device with Adreno 6xx or Adreno 725-740 is recommended to achieve best performance and compatibility with Turnip+DXVK.
-### Root
+### Root 
 * Root is not required.
 
-## Known issues
+## Known issues 📌
 * If termux app crashes when trying to enter mobox menu, then remove custom theme scripts:
 ```bash
 rm -rf $PREFIX/glibc/opt/termux-style
@@ -82,7 +99,7 @@ rm -rf $PREFIX/glibc/opt/termux-style
 * Some devices may have prefix creation freeze issues when installing PhysX, in this case change settings in `Compatibility settings` menu
 * For SD845 device, disable dri3 in `Compatibility settings` menu
 
-## Support mobox
+## Support mobox 🎗️
 [boosty](https://boosty.to/olegos/donate)
 
 #
@@ -91,7 +108,7 @@ Big thanks to Hugo, JeezDisReez, ptitSeb, MishkaKolos, Xanzo, Jotaros, Maxython 
 [MishkaKolos Discord](https://discord.gg/ZAQnZzbCXq)
 
 
-## Third party applications
+## Third party applications 📕
 
 [glibc-packages](https://github.com/termux-pacman/glibc-packages)
 
