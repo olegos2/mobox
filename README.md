@@ -7,6 +7,7 @@
 >
 > 
 > The instructions, usage and everything else remains exactly the same.
+> I had great ambitions for this project; however, I unfortunately don't have time and great alternatives to mobox exist.
 
 # README
 ![logo](docs/img/logo.png "logo")
