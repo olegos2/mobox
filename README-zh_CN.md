@@ -53,12 +53,12 @@ Mesa VirGL、Turnip、Wine Mono 和 Gecko 可以在 Wine Start Menu 中安装。
 * `Display resolution` 1280x720  
    `显示分辨率` 1280x720
 * `Reseed Screen While Soft Keyboard is open` 关闭  
-   `打开软键盘时调整显示大小` 关闭  
+   `打开软键盘时调整显示大小` 关闭
 * `Fullscreen` 开启  
    `全屏` 开启
 * `Screen orientation` landscape  
    `屏幕方向` 横屏
-* `Hide display cutout (if any)` 开启
+* `Hide display cutout (if any)` 开启  
   `全面屏显示（异形屏）`开启
 
 **Keyboard（键盘）**
