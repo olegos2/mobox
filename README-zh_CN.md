@@ -13,6 +13,8 @@
 <a href="https://github.com/olegos2/mobox/blob/main/README-ja.md">日本語</a>
 &nbsp;&nbsp;| &nbsp;&nbsp;
 简体中文
+&nbsp;&nbsp;| &nbsp;&nbsp;
+<a href="https://github.com/olegos2/mobox/blob/main/README-id.md">Bahasa Indonesia</a>
 
 ##
 
@@ -45,14 +47,25 @@ Mesa VirGL、Turnip、Wine Mono 和 Gecko 可以在 Wine Start Menu 中安装。
 ### Root 设置
 如果您有 root 权限，则可以使用 OOM 调整器，这在低内存时阻止 termux 被杀死很有用。
 ## Termux-X11 推荐设置
-* `Display resolution mode` exact
-* `Display resolution` 1280x720
-* `Reseed Screen While Soft Keyboard is open` 关闭
-* `Fullscreen on device display` 打开
-* `Force Landscape orientation` 打开
-* `Hide display cutout` 打开
-* `Show additional keyboard` 关闭
-* `Prefer scancodes when possible` 打开
+**Output（输出）**
+* `Display resolution mode` exact  
+  `显示分辨率模式` 精确
+* `Display resolution` 1280x720  
+   `显示分辨率` 1280x720
+* `Reseed Screen While Soft Keyboard is open` 关闭  
+   `打开软键盘时调整显示大小` 关闭
+* `Fullscreen` 开启  
+   `全屏` 开启
+* `Screen orientation` landscape  
+   `屏幕方向` 横屏
+* `Hide display cutout (if any)` 开启  
+  `全面屏显示（异形屏）`开启
+
+**Keyboard（键盘）**
+* `Show additional keyboard` 关闭  
+   `显示扩展键盘` 关闭
+* `Prefer scancodes when possible` 开启  
+   `优先使用扫描码（让服务器响应键盘事件）`开启
 ## 控制
 对于触摸控制，需要 Input Bridge 应用程序
 ## 卸载
